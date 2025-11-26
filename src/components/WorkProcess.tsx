@@ -4,68 +4,92 @@ import { FileText, Phone, GraduationCap, PlayCircle, TrendingUp } from "lucide-r
 const steps = [
   {
     icon: FileText,
-    title: "Вы оставляете заявку",
-    description: "Заполните простую форму на сайте",
+    number: "1",
+    title: "Заявка на сайте",
+    description: "Ты не ищешь клиентов, а прозваниваешь новых или уже действующих клиентов компании. Все заявки приходят автоматически — это очень удобно.",
   },
   {
     icon: Phone,
-    title: "Мы связываемся с вами",
-    description: "Проводим короткое интервью",
+    number: "2",
+    title: "Общение с клиентом",
+    description: "Система колл-центра сама распределяет входящие заявки: клиенту автоматически поступает звонок, и оператор подключается к диалогу.",
   },
   {
     icon: GraduationCap,
-    title: "Обучение и адаптация",
-    description: "Скрипты, стандарты, продукт",
+    number: "3",
+    title: "Подтверждение заказа",
+    description: "Ты сможешь общаться с клиентом по заранее хорошо подготовленному скрипту — у нас всё просто, понятно и структурировано.",
   },
   {
     icon: PlayCircle,
-    title: "Начало работы с клиентами",
-    description: "Первые звонки под контролем наставника",
+    number: "4",
+    title: "Оформление заказа в CRM",
+    description: "Все данные ты вносишь в удобную, интуитивно понятную CRM-систему. Выполнение задачи возможно как из офиса, так и на удалённке.",
   },
   {
     icon: TrendingUp,
-    title: "Рост показателей и заработка",
-    description: "Развитие навыков и увеличение дохода",
+    number: "5",
+    title: "Получение вознаграждения",
+    description: "После успешного закрытия сделки ты получаешь фиксированную ставку + проценты от продаж. Выплаты дважды в месяц.",
   },
 ];
 
 export const WorkProcess = () => {
   return (
-    <section className="py-16 md:py-24 bg-background">
+    <section className="py-16 md:py-24 bg-background relative overflow-hidden">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-4 text-foreground">
           Как будет проходить работа
         </h2>
-        <p className="text-center text-muted-foreground mb-12 text-lg max-w-2xl mx-auto">
+        <p className="text-center text-muted-foreground mb-16 text-lg max-w-2xl mx-auto">
           Простой и понятный процесс от заявки до успешной работы
         </p>
-        <div className="max-w-5xl mx-auto">
-          <div className="grid gap-6 md:grid-cols-5">
-            {steps.map((step, index) => {
-              const Icon = step.icon;
-              return (
-                <div key={index} className="relative animate-fade-in" style={{ animationDelay: `${index * 150}ms` }}>
-                  <Card className="p-6 text-center h-full hover:shadow-card-hover transition-all duration-300 border-border bg-card">
-                    <div className="flex flex-col items-center">
-                      <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 relative">
-                        <Icon className="h-8 w-8 text-primary" />
-                        <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-hero-gradient text-white flex items-center justify-center text-sm font-bold">
-                          {index + 1}
+        <div className="max-w-6xl mx-auto space-y-12 md:space-y-16">
+          {steps.map((step, index) => {
+            const Icon = step.icon;
+            const isEven = index % 2 === 0;
+            return (
+              <div 
+                key={index} 
+                className={`relative animate-fade-in grid md:grid-cols-2 gap-8 items-center ${
+                  isEven ? '' : 'md:grid-flow-dense'
+                }`}
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                {/* Декоративная цифра */}
+                <div className={`relative ${isEven ? 'md:order-1' : 'md:order-2'}`}>
+                  <div className="relative">
+                    <span className="text-[180px] md:text-[220px] font-bold text-muted/20 leading-none select-none absolute -top-16 md:-top-20 left-0">
+                      {step.number}
+                    </span>
+                    <div className="relative z-10 pt-12 md:pt-16">
+                      <div className="flex items-start gap-4 mb-4">
+                        <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                          <Icon className="h-6 w-6 text-primary" />
                         </div>
+                        <h3 className="text-2xl md:text-3xl font-bold text-primary pt-1">
+                          {step.title}
+                        </h3>
                       </div>
-                      <h3 className="font-semibold mb-2 text-card-foreground text-sm">{step.title}</h3>
-                      <p className="text-xs text-muted-foreground">{step.description}</p>
+                      <p className="text-base md:text-lg text-muted-foreground leading-relaxed pl-16">
+                        {step.description}
+                      </p>
                     </div>
-                  </Card>
-                  {index < steps.length - 1 && (
-                    <div className="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2 z-10">
-                      <div className="w-6 h-0.5 bg-primary"></div>
-                    </div>
-                  )}
+                  </div>
                 </div>
-              );
-            })}
-          </div>
+                
+                {/* Декоративный элемент */}
+                <div className={`hidden md:block ${isEven ? 'md:order-2' : 'md:order-1'}`}>
+                  <div className="relative h-48 flex items-center justify-center">
+                    <div className="w-32 h-32 rounded-full bg-hero-gradient opacity-10"></div>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <Icon className="h-20 w-20 text-primary/30" strokeWidth={1} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
