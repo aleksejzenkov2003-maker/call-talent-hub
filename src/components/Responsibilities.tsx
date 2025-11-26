@@ -34,8 +34,12 @@ const responsibilities = [
 
 export const Responsibilities = () => {
   return (
-    <section className="py-16 md:py-24 bg-secondary">
-      <div className="container mx-auto px-4">
+    <section className="py-16 md:py-24 bg-secondary relative overflow-hidden">
+      {/* Декоративный круг */}
+      <div className="absolute top-20 right-10 w-64 h-64 border-8 border-primary/5 rounded-full hidden xl:block"></div>
+      <div className="absolute bottom-20 left-10 w-48 h-48 bg-accent/5 rounded-full hidden xl:block"></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-4 text-foreground">
           Чем предстоит заниматься
         </h2>
@@ -48,12 +52,12 @@ export const Responsibilities = () => {
             return (
               <Card 
                 key={index} 
-                className="p-6 hover:shadow-card-hover transition-all duration-300 border-border bg-card animate-fade-in"
+                className="p-6 hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 border-border bg-card animate-fade-in group"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <Icon className="h-6 w-6 text-primary" />
+                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-hero-gradient transition-colors">
+                    <Icon className="h-6 w-6 text-primary group-hover:text-white transition-colors" />
                   </div>
                   <p className="text-card-foreground leading-relaxed">{item.title}</p>
                 </div>
