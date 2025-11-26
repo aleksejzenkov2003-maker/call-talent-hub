@@ -8,7 +8,7 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative overflow-hidden bg-background py-12 md:py-20 lg:py-24">
+    <section className="relative overflow-hidden bg-background py-8 md:py-12 lg:py-16">
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
         <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 xl:gap-16 items-center">
           <div className="animate-fade-in order-2 lg:order-1 z-10">
