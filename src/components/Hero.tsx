@@ -56,15 +56,15 @@ export const Hero = () => {
                 alt="Профессиональный менеджер по работе с клиентами"
                 className="w-full h-auto object-cover"
               />
-              <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 bg-white px-8 py-4 rounded-2xl shadow-xl">
-                <div className="text-4xl font-bold text-foreground text-center">2/2</div>
-                <div className="text-sm text-muted-foreground text-center">График работы</div>
+              <div className="absolute top-12 left-8 bg-white px-6 py-3 rounded-xl shadow-lg">
+                <div className="text-3xl font-bold text-foreground text-center">2/2</div>
+                <div className="text-xs text-muted-foreground text-center">График работы</div>
               </div>
-              <div className="absolute bottom-8 left-8 bg-white px-5 py-3 rounded-2xl shadow-xl flex items-start gap-3">
-                <div className="w-2.5 h-2.5 bg-green-500 rounded-full mt-1.5"></div>
+              <div className="absolute bottom-12 left-8 bg-white px-4 py-2.5 rounded-xl shadow-lg flex items-start gap-2">
+                <div className="w-2 h-2 bg-green-500 rounded-full mt-1"></div>
                 <div>
-                  <div className="text-xs text-muted-foreground mb-0.5">Статус</div>
-                  <div className="text-base font-bold text-foreground">Активный набор</div>
+                  <div className="text-[10px] text-muted-foreground mb-0.5">Статус</div>
+                  <div className="text-sm font-bold text-foreground">Активный набор</div>
                 </div>
               </div>
             </div>
