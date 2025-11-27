@@ -1,6 +1,7 @@
 import { Menu } from "lucide-react";
 import { Button } from "./ui/button";
 import { useState } from "react";
+import logo from "@/assets/logo-smbh.png";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,8 +20,7 @@ export const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-3">
-            <img src="/logo.jpg" alt="CallMedia Logo" className="h-12 w-12 object-contain" />
-            <span className="text-xl font-bold text-foreground hidden sm:inline">CallMedia</span>
+            <img src={logo} alt="SMBH Logo" className="h-10 w-auto object-contain" />
           </div>
 
           {/* Desktop Navigation */}
