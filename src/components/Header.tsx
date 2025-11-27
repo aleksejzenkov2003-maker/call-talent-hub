@@ -15,7 +15,7 @@ export const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-sm shadow-sm">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -24,23 +24,23 @@ export const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-6">
-            <button onClick={() => scrollToSection('responsibilities')} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+          <nav className="hidden md:flex items-center gap-8">
+            <button onClick={() => scrollToSection('responsibilities')} className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors">
               Обязанности
             </button>
-            <button onClick={() => scrollToSection('requirements')} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+            <button onClick={() => scrollToSection('requirements')} className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors">
               Требования
             </button>
-            <button onClick={() => scrollToSection('benefits')} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+            <button onClick={() => scrollToSection('benefits')} className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors">
               Преимущества
             </button>
-            <button onClick={() => scrollToSection('work-process')} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+            <button onClick={() => scrollToSection('work-process')} className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors">
               Процесс работы
             </button>
-            <button onClick={() => scrollToSection('faq')} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+            <button onClick={() => scrollToSection('faq')} className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors">
               FAQ
             </button>
-            <Button onClick={() => scrollToSection('application-form')}>
+            <Button onClick={() => scrollToSection('application-form')} className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg px-6">
               Оставить заявку
             </Button>
           </nav>
