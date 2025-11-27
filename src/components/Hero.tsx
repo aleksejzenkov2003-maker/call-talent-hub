@@ -50,18 +50,18 @@ export const Hero = () => {
             </p>
           </div>
           <div className="relative animate-fade-in order-1 lg:order-2 hidden lg:block">
-            <div className="relative rounded-3xl overflow-hidden shadow-xl max-w-lg mx-auto lg:max-w-none">
+            <div className="relative rounded-3xl overflow-hidden shadow-xl max-w-2xl mx-auto lg:max-w-none">
               <img 
                 src={heroImage} 
                 alt="Профессиональный менеджер по работе с клиентами"
                 className="w-full h-auto object-cover"
               />
-              <div className="absolute bottom-32 left-1/2 transform -translate-x-1/2 bg-card/95 px-8 py-4 rounded-2xl border border-border shadow-lg">
-                <div className="text-4xl font-bold text-foreground text-center">2/2</div>
-                <div className="text-sm text-muted-foreground text-center mt-1">График работы</div>
+              <div className="absolute bottom-32 left-1/2 transform -translate-x-1/2 bg-card/95 px-6 py-3 rounded-xl border border-border shadow-lg">
+                <div className="text-3xl font-bold text-foreground text-center">2/2</div>
+                <div className="text-xs text-muted-foreground text-center mt-0.5">График работы</div>
               </div>
-              <div className="absolute bottom-8 left-8 bg-card/95 px-5 py-3 rounded-xl border border-border shadow-lg flex items-center gap-3">
-                <div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse"></div>
+              <div className="absolute bottom-6 left-6 bg-card/95 px-4 py-2.5 rounded-lg border border-border shadow-lg flex items-center gap-2.5">
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                 <div>
                   <div className="text-xs text-muted-foreground">Статус</div>
                   <div className="text-sm font-bold text-foreground">Активный набор</div>
