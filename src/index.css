@@ -2,95 +2,88 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    --background: 195 20% 94%;
-    --foreground: 195 30% 20%;
+    --background: 210 20% 96%;
+    --foreground: 210 30% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 195 30% 20%;
+    --card-foreground: 210 30% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 195 30% 20%;
+    --popover-foreground: 210 30% 15%;
 
-    --primary: 185 75% 45%;
+    --primary: 185 70% 45%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 195 15% 90%;
-    --secondary-foreground: 195 30% 20%;
+    --secondary: 210 15% 92%;
+    --secondary-foreground: 210 30% 15%;
 
-    --muted: 195 15% 88%;
-    --muted-foreground: 195 25% 40%;
+    --muted: 210 15% 90%;
+    --muted-foreground: 210 25% 45%;
 
-    --accent: 185 75% 45%;
+    --accent: 185 70% 45%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 195 15% 85%;
-    --input: 195 15% 87%;
-    --ring: 185 75% 45%;
+    --border: 210 15% 88%;
+    --input: 210 15% 88%;
+    --ring: 185 70% 45%;
 
     --radius: 0.75rem;
     
-    --hero-gradient: linear-gradient(135deg, hsl(185 75% 45%) 0%, hsl(185 70% 50%) 100%);
-    --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    --card-shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.12);
+    --hero-gradient: linear-gradient(135deg, hsl(185 70% 45%) 0%, hsl(185 65% 50%) 100%);
+    --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    --card-shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.1);
+    
+    --dark-bg: 210 35% 15%;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 195 25% 15%;
+    --background: 210 35% 12%;
     --foreground: 0 0% 98%;
 
-    --card: 195 25% 18%;
+    --card: 210 35% 15%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 195 25% 18%;
+    --popover: 210 35% 15%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 185 80% 55%;
+    --primary: 185 75% 50%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 195 25% 22%;
+    --secondary: 210 30% 20%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 195 20% 25%;
-    --muted-foreground: 195 15% 70%;
+    --muted: 210 25% 22%;
+    --muted-foreground: 210 15% 65%;
 
-    --accent: 185 80% 55%;
+    --accent: 185 75% 50%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 50.6%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 195 20% 28%;
-    --input: 195 20% 28%;
-    --ring: 185 80% 55%;
+    --border: 210 25% 25%;
+    --input: 210 25% 25%;
+    --ring: 185 75% 50%;
     
-    --hero-gradient: linear-gradient(135deg, hsl(185 80% 55%) 0%, hsl(185 70% 55%) 100%);
+    --hero-gradient: linear-gradient(135deg, hsl(185 75% 50%) 0%, hsl(185 70% 55%) 100%);
     --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     --card-shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.4);
+    
+    --dark-bg: 210 35% 15%;
     
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -109,25 +102,16 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply text-foreground;
-    background-color: hsl(var(--background));
-    background-image: url('/background-logo.jpg');
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed;
-    background-size: 40%;
-    position: relative;
+    @apply text-foreground bg-background;
   }
   
-  body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: hsl(var(--background) / 0.85);
-    z-index: -1;
-    pointer-events: none;
+  .bg-dark {
+    background-color: hsl(var(--dark-bg));
+  }
+}
+
+@layer utilities {
+  .section-title-underline {
+    @apply w-20 h-1 bg-primary mx-auto rounded-full;
   }
 }
