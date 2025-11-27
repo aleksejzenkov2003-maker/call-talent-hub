@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Send, MessageCircle } from "lucide-react";
-import heroImage from "@/assets/hero-image.jpg";
+import heroImage from "@/assets/hero-image-new.jpg";
 
 export const Hero = () => {
   const scrollToForm = () => {
@@ -54,17 +54,17 @@ export const Hero = () => {
               <img 
                 src={heroImage} 
                 alt="Профессиональный менеджер по работе с клиентами"
-                className="w-full h-auto object-cover aspect-square"
+                className="w-full h-auto object-cover"
               />
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-card/90 backdrop-blur-sm px-10 py-5 rounded-2xl border-2 border-border shadow-xl">
-                <div className="text-5xl font-bold text-foreground text-center">2/2</div>
-                <div className="text-base text-muted-foreground text-center mt-1">График работы</div>
+              <div className="absolute bottom-32 left-1/2 transform -translate-x-1/2 bg-card/95 px-8 py-4 rounded-2xl border border-border shadow-lg">
+                <div className="text-4xl font-bold text-foreground text-center">2/2</div>
+                <div className="text-sm text-muted-foreground text-center mt-1">График работы</div>
               </div>
-              <div className="absolute bottom-8 left-8 bg-card/95 backdrop-blur-sm px-6 py-4 rounded-xl border-2 border-border shadow-xl flex items-center gap-3">
-                <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+              <div className="absolute bottom-8 left-8 bg-card/95 px-5 py-3 rounded-xl border border-border shadow-lg flex items-center gap-3">
+                <div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse"></div>
                 <div>
                   <div className="text-xs text-muted-foreground">Статус</div>
-                  <div className="text-base font-bold text-foreground">Активный набор</div>
+                  <div className="text-sm font-bold text-foreground">Активный набор</div>
                 </div>
               </div>
             </div>
