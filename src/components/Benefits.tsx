@@ -1,90 +1,80 @@
 import { Card } from "@/components/ui/card";
-import { MapPin, Calendar, CreditCard, TrendingUp, GraduationCap, Users, Award } from "lucide-react";
+import { MapPin, Calendar, CreditCard, TrendingUp, GraduationCap, Users } from "lucide-react";
 
 const benefits = [
   {
     icon: MapPin,
     title: "Полностью удалённый формат работы",
-    description: "Работайте из любой точки мира",
-    featured: false,
+    description: "Работайте из любой точки мира, где есть интернет",
   },
   {
     icon: Calendar,
     title: "График 2/2, 10:00–20:00 МСК",
-    description: "Последний звонок — до 19:00",
-    featured: false,
+    description: "Последний звонок принимается до 19:00",
   },
   {
     icon: CreditCard,
     title: "Зарплата два раза в месяц",
     description: "5-го и 20-го числа без задержек",
-    featured: true,
   },
   {
     icon: TrendingUp,
     title: "Прозрачная мотивация",
-    description: "Рост дохода от результата",
-    featured: false,
+    description: "Фиксированная ставка + бонусы за результат",
   },
   {
     icon: GraduationCap,
     title: "Бесплатное обучение",
-    description: "Поддержка наставника на старте",
-    featured: false,
+    description: "Полное обучение и поддержка наставника",
   },
   {
     icon: Users,
-    title: "Комфортная рабочая атмосфера",
-    description: "Адекватное руководство и поддержка",
-    featured: false,
-  },
-  {
-    icon: Award,
-    title: "Возможность роста",
-    description: "Карьерное развитие внутри компании",
-    featured: false,
+    title: "Дружная команда",
+    description: "Комфортная атмосфера и адекватное руководство",
   },
 ];
 
 export const Benefits = () => {
   return (
-    <section className="py-16 md:py-24 bg-secondary relative overflow-hidden">
-      {/* Декоративные линии */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
-      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-accent/20 to-transparent"></div>
+    <section className="py-20 bg-background text-foreground relative z-10 overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
       
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-4 text-foreground">
-          Что мы предлагаем
-        </h2>
-        <p className="text-center text-muted-foreground mb-12 text-lg max-w-2xl mx-auto">
-          Условия работы, которые делают нас привлекательным работодателем
-        </p>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="container mx-auto px-4 max-w-6xl relative">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Что мы предлагаем
+          </h2>
+          <p className="text-muted-foreground text-lg">
+            Условия, которые позволяют комфортно работать и зарабатывать
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {benefits.map((benefit, index) => {
             const Icon = benefit.icon;
             return (
-              <Card 
-                key={index} 
-                className={`p-6 hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 border-border bg-card animate-fade-in group ${
-                  benefit.featured ? 'ring-2 ring-primary' : ''
+              <Card
+                key={index}
+                className={`p-6 rounded-2xl transition-all duration-300 hover:shadow-card-hover ${
+                  index === 3
+                    ? 'bg-hero-gradient text-primary-foreground shadow-lg shadow-primary/20 transform md:-translate-y-2'
+                    : 'bg-card border hover:border-primary/30'
                 }`}
-                style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="flex flex-col items-center text-center">
-                  <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-4 transition-all duration-300 ${
-                    benefit.featured ? 'bg-hero-gradient group-hover:scale-110' : 'bg-primary/10 group-hover:bg-primary/20'
+                <div className="mb-4">
+                  <div className={`w-12 h-12 rounded-full flex items-center justify-center ${
+                    index === 3 ? 'bg-white/20' : 'bg-primary/10'
                   }`}>
-                    <Icon className={`h-8 w-8 transition-transform group-hover:scale-110 ${benefit.featured ? 'text-white' : 'text-primary'}`} />
+                    <Icon className={`h-6 w-6 ${index === 3 ? 'text-white' : 'text-primary'}`} />
                   </div>
-                  <h3 className="text-lg font-semibold mb-2 text-card-foreground">{benefit.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{benefit.description}</p>
-                  {benefit.featured && (
-                    <span className="mt-3 px-3 py-1 text-xs font-semibold rounded-full bg-primary text-primary-foreground">
-                      Главное преимущество
-                    </span>
-                  )}
                 </div>
+                <h3 className="text-xl font-bold mb-2">
+                  {benefit.title}
+                </h3>
+                <p className={`text-sm ${index === 3 ? 'text-white/90' : 'text-muted-foreground'}`}>
+                  {benefit.description}
+                </p>
               </Card>
             );
           })}
