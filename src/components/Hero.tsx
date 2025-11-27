@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Send, MessageCircle } from "lucide-react";
-import heroImage from "@/assets/hero-image-new.jpg";
+import heroImage from "@/assets/hero-image-wide.jpg";
 
 export const Hero = () => {
   const scrollToForm = () => {
