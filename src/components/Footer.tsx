@@ -8,7 +8,7 @@ export const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Logo */}
           <div className="flex items-center gap-3">
-            <img src={logoSmbh} alt="SMBH" className="h-12" />
+            <img src={logoSmbh} alt="SMBH" className="h-12 mix-blend-lighten" />
           </div>
 
           {/* Social Links */}
