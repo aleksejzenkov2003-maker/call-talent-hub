@@ -18,7 +18,7 @@ export const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-3">
-            <img src={logo} alt="SMBH Logo" className="h-20 w-auto object-contain border-0 border-none" />
+            <img src={logo} alt="SMBH Logo" className="h-20 w-auto object-contain mix-blend-lighten" />
           </div>
 
           {/* Desktop Navigation */}
