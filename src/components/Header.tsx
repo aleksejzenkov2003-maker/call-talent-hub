@@ -1,7 +1,7 @@
 import { Menu } from "lucide-react";
 import { Button } from "./ui/button";
 import { useState } from "react";
-import logo from "@/assets/logo-smbh.png";
+import logo from "@/assets/logo-shark.png";
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const scrollToSection = (id: string) => {
@@ -18,7 +18,7 @@ export const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-3">
-            <img src={logo} alt="SMBH Logo" className="h-20 w-auto object-contain mix-blend-lighten" />
+            <img src={logo} alt="SMBH Logo" className="h-16 w-auto object-contain" />
           </div>
 
           {/* Desktop Navigation */}
