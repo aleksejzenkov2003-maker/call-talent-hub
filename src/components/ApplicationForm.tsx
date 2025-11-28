@@ -23,6 +23,7 @@ export const ApplicationForm = () => {
     setIsSubmitting(true);
 
     try {
+      // Save to database
       const { error } = await supabase.from('applications').insert({
         name: formData.name,
         phone: formData.phone,
@@ -38,6 +39,18 @@ export const ApplicationForm = () => {
         });
         return;
       }
+
+      // Send to Google Sheets (fire and forget, don't block on errors)
+      supabase.functions.invoke('send-to-sheets', {
+        body: {
+          name: formData.name,
+          phone: formData.phone,
+          messenger: formData.messenger,
+          experience: formData.experience,
+        },
+      }).catch((err) => {
+        console.error('Failed to send to Google Sheets:', err);
+      });
 
       setIsSubmitted(true);
       toast({
