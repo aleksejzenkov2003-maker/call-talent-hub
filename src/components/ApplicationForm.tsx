@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { Check } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 export const ApplicationForm = () => {
   const { toast } = useToast();
@@ -20,14 +22,37 @@ export const ApplicationForm = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      const { error } = await supabase.from('applications').insert({
+        name: formData.name,
+        phone: formData.phone,
+        messenger: formData.messenger,
+        experience: formData.experience,
+      });
+
+      if (error) {
+        toast({
+          title: "Ошибка",
+          description: "Не удалось отправить заявку. Попробуйте позже.",
+          variant: "destructive",
+        });
+        return;
+      }
+
       setIsSubmitted(true);
       toast({
         title: "Заявка отправлена!",
         description: "Наш HR свяжется с вами в ближайшее время.",
       });
-    }, 1000);
+    } catch (error) {
+      toast({
+        title: "Ошибка",
+        description: "Произошла ошибка при отправке заявки.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -111,7 +136,10 @@ export const ApplicationForm = () => {
               </Button>
 
               <p className="text-xs text-center text-muted-foreground mt-4">
-                Нажимая кнопку, вы соглашаетесь с условиями обработки персональных данных.
+                Нажимая кнопку, вы соглашаетесь с{" "}
+                <Link to="/privacy" className="underline hover:text-foreground">
+                  политикой конфиденциальности
+                </Link>.
               </p>
             </div>
           </form>
