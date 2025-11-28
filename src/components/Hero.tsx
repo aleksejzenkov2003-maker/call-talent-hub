@@ -32,7 +32,7 @@ export const Hero = () => {
                 <Send className="w-5 h-5 ml-2" />
               </Button>
               <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-2 rounded-xl font-semibold">
-                Telegram / WhatsApp
+                Telegram 
                 <MessageCircle className="w-5 h-5 ml-2" />
               </Button>
             </div>
