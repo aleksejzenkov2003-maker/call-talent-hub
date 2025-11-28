@@ -8,6 +8,7 @@ import { WhyUs } from "@/components/WhyUs";
 import { Testimonials } from "@/components/Testimonials";
 import { FAQ } from "@/components/FAQ";
 import { ApplicationForm } from "@/components/ApplicationForm";
+import { Footer } from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -33,6 +34,7 @@ const Index = () => {
           <FAQ />
         </div>
         <ApplicationForm />
+        <Footer />
       </div>
     </div>
   );
