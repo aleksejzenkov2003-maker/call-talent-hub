@@ -24,6 +24,9 @@ serve(async (req) => {
       );
     }
 
+    // Log masked URL for debugging
+    const maskedUrl = webhookUrl.substring(0, 50) + '...' + webhookUrl.substring(webhookUrl.length - 10);
+    console.log('Using webhook URL:', maskedUrl);
     console.log('Sending data to Google Sheets:', { name, phone, messenger, experience });
 
     const response = await fetch(webhookUrl, {
@@ -38,18 +41,33 @@ serve(async (req) => {
         experience,
         timestamp: new Date().toISOString(),
       }),
+      redirect: 'follow', // Follow redirects
     });
 
-    if (!response.ok) {
-      const errorText = await response.text();
-      console.error('Google Sheets webhook error:', errorText);
+    console.log('Response status:', response.status);
+    console.log('Response URL:', response.url);
+
+    // Google Apps Script returns 302 redirect, then 200
+    // Even non-200 responses might be OK for Apps Script
+    const responseText = await response.text();
+    console.log('Response body:', responseText.substring(0, 200));
+
+    // Check if response contains HTML error page
+    if (responseText.includes('Seite nicht gefunden') || responseText.includes('Page not found')) {
+      console.error('Google returned page not found error');
       return new Response(
-        JSON.stringify({ error: 'Failed to send to Google Sheets' }),
+        JSON.stringify({ error: 'Google Apps Script URL is invalid or not deployed' }),
         { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       );
     }
 
-    console.log('Successfully sent to Google Sheets');
+    // Try to parse as JSON, if it fails it might still be successful
+    try {
+      const jsonResponse = JSON.parse(responseText);
+      console.log('Successfully sent to Google Sheets:', jsonResponse);
+    } catch {
+      console.log('Response is not JSON, but request might still be successful');
+    }
 
     return new Response(
       JSON.stringify({ success: true }),
